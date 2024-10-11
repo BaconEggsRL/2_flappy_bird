@@ -114,7 +114,7 @@ func gameover() -> void:
 		Global.save_data.high_score = score
 		Global.save_data.save()
 	
-	gameover_canvas.best_label.text = "BEST: %s" % Global.save_data.high_score
+	gameover_canvas.best_label.text = "BEST: %s" % str(Global.save_data.high_score)
 	
 	# gameover_canvas.show()
 

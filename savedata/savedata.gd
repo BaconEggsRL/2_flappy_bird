@@ -9,6 +9,11 @@ func save() -> void:
 	ResourceSaver.save(self, SAVE_PATH)
 	
 	
+func clear() -> void:
+	self.high_score = 0
+	save()
+	
+	
 static func load_or_create() -> SaveData:
 	var res:SaveData
 	if FileAccess.file_exists(SAVE_PATH):

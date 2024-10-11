@@ -45,10 +45,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 76
 text = "Start"
 
-[node name="ScoreButton" type="Button" parent="Control/VBoxContainer"]
+[node name="ScoresButton" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 76
 text = "Scores"
 
 [connection signal="pressed" from="Control/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/ScoreButton" to="." method="_on_score_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]

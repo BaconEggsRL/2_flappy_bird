@@ -11,6 +11,6 @@ func _on_start_button_pressed() -> void:
 	Global.to_game()
 
 
-func _on_score_button_pressed() -> void:
+func _on_scores_button_pressed() -> void:
 	Global.play_sound("button")
-	print("score")
+	Global.to_scores()

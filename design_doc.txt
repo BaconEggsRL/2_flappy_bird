@@ -55,8 +55,8 @@ Stretch goals:
 
 
 
-Add some background art! Try layering the background and scrolling at a different rate to the foreground obstacles. This is called Parallax scrolling.
-Add some background music
+# Add some background art! Try layering the background and scrolling at a different rate to the foreground obstacles. This is called Parallax scrolling.
+# Add some background music
 Add a pause button
 
 
