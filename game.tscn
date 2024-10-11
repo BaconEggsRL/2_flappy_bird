@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://f64yox2eyxm5"]
+[gd_scene load_steps=9 format=3 uid="uid://f64yox2eyxm5"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_7pm23"]
 [ext_resource type="PackedScene" uid="uid://bkifbtn8ifthn" path="res://player.tscn" id="2_74ghp"]
+[ext_resource type="PackedScene" uid="uid://b7s1wbjerytl0" path="res://sky.tscn" id="2_k063k"]
 [ext_resource type="PackedScene" uid="uid://sp1u6fh41nyc" path="res://grass.tscn" id="3_78voe"]
 [ext_resource type="Script" path="res://game_over.gd" id="5_hk0g7"]
 
@@ -20,26 +21,8 @@ grass = NodePath("grass")
 player = NodePath("player")
 score_label = NodePath("UI/ScoreLabel")
 
-[node name="Sky" type="Control" parent="."]
-custom_minimum_size = Vector2(505, 720)
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 357.5
-offset_right = 862.5
-offset_bottom = 720.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Sky" type="ColorRect" parent="Sky"]
-custom_minimum_size = Vector2(505, 720)
-layout_mode = 0
-offset_right = 405.0
-offset_bottom = 720.0
-color = Color(0.625195, 0.881895, 1, 1)
+[node name="sky" parent="." instance=ExtResource("2_k063k")]
+position = Vector2(357, 0)
 
 [node name="pipes" type="Node2D" parent="."]
 
