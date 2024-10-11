@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://f64yox2eyxm5"]
+[gd_scene load_steps=10 format=3 uid="uid://f64yox2eyxm5"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_7pm23"]
 [ext_resource type="PackedScene" uid="uid://bkifbtn8ifthn" path="res://player.tscn" id="2_74ghp"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_mko3y"]
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umhwl"]
+size = Vector2(128, 48)
 
 [sub_resource type="LabelSettings" id="LabelSettings_s6wd4"]
 font_color = Color(0, 0, 0, 1)
@@ -57,9 +60,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1220.0
 offset_bottom = 720.0
+mouse_filter = 1
 metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="UI"]
+[node name="BackButton" type="Button" parent="UI"]
 layout_mode = 1
 offset_left = 14.0
 offset_top = 17.0
@@ -77,6 +81,12 @@ offset_bottom = 33.0
 text = "0"
 label_settings = SubResource("LabelSettings_mko3y")
 horizontal_alignment = 1
+
+[node name="UI_Area" type="Area2D" parent="UI"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/UI_Area"]
+position = Vector2(75, 38)
+shape = SubResource("RectangleShape2D_umhwl")
 
 [node name="PipeTimer" type="Timer" parent="."]
 wait_time = 2.5
@@ -162,6 +172,8 @@ offset_right = 658.0
 offset_bottom = 459.0
 text = "OK"
 
-[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="UI/UI_Area" to="." method="_on_ui_area_mouse_entered"]
+[connection signal="mouse_exited" from="UI/UI_Area" to="." method="_on_ui_area_mouse_exited"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="pressed" from="GameOver/OK_BTN" to="GameOver" method="_on_ok_btn_pressed"]

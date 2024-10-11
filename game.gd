@@ -19,11 +19,7 @@ const pipe_scene = preload("res://pipe.tscn")
 
 var score = 0
 
-
-
-# back to main
-func _on_button_pressed() -> void:
-	Global.to_main()
+var mouse_over_UI : bool = false
 
 
 
@@ -31,7 +27,8 @@ func _on_button_pressed() -> void:
 func _input(_event: InputEvent) -> void:
 	if start_canvas.visible:
 		if Input.is_action_just_released("start_game"):
-			start_game()
+			if not self.mouse_over_UI:
+				start_game()
 	
 	
 func _ready() -> void:
@@ -120,3 +117,18 @@ func gameover() -> void:
 	gameover_canvas.best_label.text = "BEST: %s" % Global.save_data.high_score
 	
 	# gameover_canvas.show()
+
+
+
+# back to main
+func _on_back_button_pressed() -> void:
+	Global.play_sound("button")
+	Global.to_main()
+
+
+func _on_ui_area_mouse_entered() -> void:
+	mouse_over_UI = true
+
+
+func _on_ui_area_mouse_exited() -> void:
+	mouse_over_UI = false

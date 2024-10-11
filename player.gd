@@ -13,6 +13,8 @@ var has_hit_ground : bool = false
 @export var anim : AnimatedSprite2D
 
 
+
+
 func _on_hit_ground() -> void:
 	Global.play_sound("dead")
 	has_hit_ground = true
@@ -41,8 +43,8 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta
 		
 		# Rotate player when falling
-			if self.velocity.y > 0:
-				rotate_player()
+		if self.velocity.y > 0:
+			rotate_player()
 		
 		# Move and slide
 		move_and_slide()
@@ -60,4 +62,5 @@ func _physics_process(delta: float) -> void:
 			if !Global.is_game_over:
 				# Handle jump
 				if Input.is_action_just_pressed("jump"):
-					jump()
+					if not game.mouse_over_UI:
+						jump()

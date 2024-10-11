@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://52mefugqmusp"]
+[gd_scene load_steps=8 format=3 uid="uid://52mefugqmusp"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_gr3b3"]
+[ext_resource type="AudioStream" uid="uid://p867yl0mpahk" path="res://sounds/boomer.mp3" id="2_x82jk"]
 [ext_resource type="AudioStream" uid="uid://chp4tgn7nb5ie" path="res://sounds/flap.wav" id="2_ycbhb"]
 [ext_resource type="AudioStream" uid="uid://5x4kokwea2ju" path="res://sounds/point.wav" id="3_upa7g"]
+[ext_resource type="AudioStream" uid="uid://y1nm0s4y6reh" path="res://sounds/button.wav" id="4_dlpfd"]
 [ext_resource type="AudioStream" uid="uid://ddoqj214hj5ks" path="res://sounds/dead.wav" id="4_g5wjv"]
 [ext_resource type="AudioStream" uid="uid://bk8mc2bsmylw5" path="res://sounds/falling.wav" id="5_ctf3f"]
 
@@ -11,8 +13,15 @@ script = ExtResource("1_gr3b3")
 
 [node name="sounds" type="Node" parent="."]
 
+[node name="music" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("2_x82jk")
+autoplay = true
+
 [node name="flap" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("2_ycbhb")
+
+[node name="button" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("4_dlpfd")
 
 [node name="score" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("3_upa7g")
