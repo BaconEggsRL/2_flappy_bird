@@ -1,0 +1,188 @@
+[gd_scene load_steps=9 format=3 uid="uid://f64yox2eyxm5"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_7pm23"]
+[ext_resource type="PackedScene" uid="uid://bkifbtn8ifthn" path="res://player.tscn" id="2_74ghp"]
+[ext_resource type="PackedScene" uid="uid://sp1u6fh41nyc" path="res://grass.tscn" id="3_78voe"]
+[ext_resource type="PackedScene" uid="uid://c260r1inf7ax8" path="res://pipe.tscn" id="4_b7h4y"]
+[ext_resource type="Script" path="res://game_over.gd" id="5_hk0g7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mko3y"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s6wd4"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x82rx"]
+font_color = Color(0.784314, 0.470588, 0, 1)
+
+[node name="game" type="Node2D" node_paths=PackedStringArray("grass", "player", "score_label")]
+script = ExtResource("1_7pm23")
+grass = NodePath("grass")
+player = NodePath("player")
+score_label = NodePath("UI/ScoreLabel")
+
+[node name="Sky" type="Control" parent="."]
+custom_minimum_size = Vector2(505, 720)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 357.5
+offset_right = 862.5
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sky" type="ColorRect" parent="Sky"]
+custom_minimum_size = Vector2(505, 720)
+layout_mode = 0
+offset_right = 405.0
+offset_bottom = 720.0
+color = Color(0.625195, 0.881895, 1, 1)
+
+[node name="pipes" type="Node2D" parent="."]
+
+[node name="pipe" parent="pipes" instance=ExtResource("4_b7h4y")]
+position = Vector2(477, 418)
+
+[node name="grass" parent="." instance=ExtResource("3_78voe")]
+position = Vector2(0, 660)
+
+[node name="Black" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Black" type="ColorRect" parent="Black"]
+layout_mode = 0
+offset_right = 357.5
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Black2" type="ColorRect" parent="Black"]
+layout_mode = 0
+offset_left = 863.0
+offset_right = 1220.5
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="player" parent="." instance=ExtResource("2_74ghp")]
+position = Vector2(555, 278)
+
+[node name="UI" type="Control" parent="."]
+custom_minimum_size = Vector2(1220, 720)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1220.0
+offset_bottom = 720.0
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="UI"]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 17.0
+offset_right = 135.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 21
+text = "Back"
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 10.0
+offset_right = 847.0
+offset_bottom = 33.0
+text = "0"
+label_settings = SubResource("LabelSettings_mko3y")
+horizontal_alignment = 1
+
+[node name="PipeTimer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="Start" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="Start"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -37.5
+offset_right = 83.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "READY
+
+TAP (left click) to start"
+label_settings = SubResource("LabelSettings_s6wd4")
+horizontal_alignment = 1
+
+[node name="GameOver" type="CanvasLayer" parent="." node_paths=PackedStringArray("score_label", "best_label", "new_best")]
+script = ExtResource("5_hk0g7")
+score_label = NodePath("VBoxContainer/GameOverScore")
+best_label = NodePath("VBoxContainer/GameOverBestScore")
+new_best = NodePath("NewBest")
+
+[node name="Label" type="Label" parent="GameOver"]
+offset_left = 565.0
+offset_top = 232.0
+offset_right = 657.0
+offset_bottom = 255.0
+size_flags_horizontal = 4
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_s6wd4")
+horizontal_alignment = 1
+
+[node name="NewBest" type="Label" parent="GameOver"]
+offset_left = 566.0
+offset_top = 277.0
+offset_right = 658.0
+offset_bottom = 300.0
+size_flags_horizontal = 4
+text = "NEW BEST!"
+label_settings = SubResource("LabelSettings_x82rx")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -38.5
+offset_right = 46.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverScore" type="Label" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SCORE: 0"
+label_settings = SubResource("LabelSettings_s6wd4")
+horizontal_alignment = 1
+
+[node name="GameOverBestScore" type="Label" parent="GameOver/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "BEST: 0"
+label_settings = SubResource("LabelSettings_s6wd4")
+horizontal_alignment = 1
+
+[node name="OK_BTN" type="Button" parent="GameOver"]
+offset_left = 560.0
+offset_top = 428.0
+offset_right = 658.0
+offset_bottom = 459.0
+text = "OK"
+
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="pressed" from="GameOver/OK_BTN" to="GameOver" method="_on_ok_btn_pressed"]
