@@ -1,25 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkifbtn8ifthn"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8lf4s"]
-[ext_resource type="Texture2D" uid="uid://du07txm41opml" path="res://sprites/bird1.png" id="2_vr4jb"]
-[ext_resource type="Texture2D" uid="uid://cy3ro27a5jxso" path="res://sprites/bird2.png" id="3_xm6mu"]
-[ext_resource type="Texture2D" uid="uid://bklto8x0jdp5r" path="res://sprites/bird3.png" id="4_m8nrk"]
+[ext_resource type="Texture2D" uid="uid://bx07dhvjrglwy" path="res://sprites/bird1_reskin.png" id="2_frli6"]
+[ext_resource type="Texture2D" uid="uid://bhmc2wt4qtuvj" path="res://sprites/bird2_reskin.png" id="3_nwh2t"]
+[ext_resource type="Texture2D" uid="uid://csjc0pbk7pu3l" path="res://sprites/bird3_reskin.png" id="4_ws4p0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ouym1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_vr4jb")
+"texture": ExtResource("2_frli6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_xm6mu")
+"texture": ExtResource("3_nwh2t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_m8nrk")
+"texture": ExtResource("4_ws4p0")
 }],
 "loop": true,
 "name": &"flying",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8epx"]
@@ -47,6 +47,8 @@ color = Color(1, 1, 0, 1)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ouym1")
 animation = &"flying"
+frame = 1
+frame_progress = 0.751496
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
