@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://f64yox2eyxm5"]
+[gd_scene load_steps=8 format=3 uid="uid://f64yox2eyxm5"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_7pm23"]
 [ext_resource type="PackedScene" uid="uid://bkifbtn8ifthn" path="res://player.tscn" id="2_74ghp"]
 [ext_resource type="PackedScene" uid="uid://sp1u6fh41nyc" path="res://grass.tscn" id="3_78voe"]
-[ext_resource type="PackedScene" uid="uid://c260r1inf7ax8" path="res://pipe.tscn" id="4_b7h4y"]
 [ext_resource type="Script" path="res://game_over.gd" id="5_hk0g7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mko3y"]
@@ -44,11 +43,8 @@ color = Color(0.625195, 0.881895, 1, 1)
 
 [node name="pipes" type="Node2D" parent="."]
 
-[node name="pipe" parent="pipes" instance=ExtResource("4_b7h4y")]
-position = Vector2(477, 418)
-
 [node name="grass" parent="." instance=ExtResource("3_78voe")]
-position = Vector2(0, 660)
+position = Vector2(-20, 620)
 
 [node name="Black" type="Control" parent="."]
 layout_mode = 3

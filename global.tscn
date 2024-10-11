@@ -14,7 +14,7 @@ script = ExtResource("1_gr3b3")
 [node name="flap" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("2_ycbhb")
 
-[node name="point" type="AudioStreamPlayer" parent="sounds"]
+[node name="score" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("3_upa7g")
 
 [node name="dead" type="AudioStreamPlayer" parent="sounds"]

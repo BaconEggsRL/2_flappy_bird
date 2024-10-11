@@ -17,6 +17,9 @@ var is_game_over = false
 
 @onready var sounds = $sounds
 
+const SCROLL_SPEED = 200.0
+const PIPE_TIME = 1.40
+const JUMP_VEL = -400.0
 
 
 # Both the current scene (the one with the button) and global.gd 

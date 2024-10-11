@@ -2,15 +2,12 @@ extends Node2D
 
 var screen_size = DisplayServer.window_get_size()
 var grass_height = 100
-var pipe_range = 200
+var pipe_range = 150
 
 const pipe_scene = preload("res://pipe.tscn")
 
 @onready var pipes = $pipes
 @onready var pipe_timer = $PipeTimer
-
-@onready var wait_time = 1.75
-@onready var pipe_speed = 175
 
 @export var grass : Area2D
 @export var player : CharacterBody2D
@@ -20,7 +17,7 @@ const pipe_scene = preload("res://pipe.tscn")
 @onready var gameover_canvas: CanvasLayer = $GameOver
 
 
-var score = -1
+var score = 0
 
 
 
@@ -43,7 +40,7 @@ func _ready() -> void:
 		
 	# Set the current scene
 	Global.current_scene = self
-	pipe_timer.wait_time = 2.0
+	pipe_timer.wait_time = Global.PIPE_TIME
 	# grass.hit.connect(player_hit)
 	player.hit_ground.connect(player_hit_ground)
 	
@@ -60,28 +57,32 @@ func start_game():
 	generate_pipe()
 	pipe_timer.start()
 	
+	player.anim.play()
 	player.jump()
 	
 	start_canvas.hide()
 
 
 func _on_pipe_timer_timeout() -> void:
-	score += 1
-	score_label.text = str(score)
-	if score > 0:
-		Global.play_sound("point")
 	generate_pipe()
-	
+
 	
 func generate_pipe() -> void:
 	var pipe = pipe_scene.instantiate()
 	pipe.position.x = screen_size.x
 	pipe.position.y = (screen_size.y - grass_height) / 2 + randi_range(-pipe_range, pipe_range)
 	pipe.hit_pipe.connect(player_hit_pipe)
-	pipe.SPEED = pipe_speed
+	pipe.scored.connect(player_scored)
 	pipes.add_child(pipe)
 
 
+func player_scored() -> void:
+	score += 1
+	score_label.text = str(score)
+	if score > 0:
+		Global.play_sound("score")
+		
+		
 # on player hit pipe
 func player_hit_pipe() -> void:
 	gameover()
@@ -99,6 +100,8 @@ func gameover() -> void:
 	gameover_canvas.new_best.hide()
 	Global.is_game_over = true
 	Global.is_game_paused = false
+	
+	player.anim.stop()
 	
 	
 	# Global.play_sound("dead")

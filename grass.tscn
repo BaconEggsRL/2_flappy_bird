@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://sp1u6fh41nyc"]
+[gd_scene load_steps=4 format=3 uid="uid://sp1u6fh41nyc"]
 
 [ext_resource type="Script" path="res://grass.gd" id="1_cqwe7"]
+[ext_resource type="Texture2D" uid="uid://bunyps2weug4x" path="res://sprites/ground.png" id="2_0v4d1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_20df8"]
 
@@ -8,9 +9,14 @@
 script = ExtResource("1_cqwe7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 2440.0
 offset_bottom = 100.0
 color = Color(0, 0.440336, 3.85046e-07, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0v4d1")
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_20df8")
