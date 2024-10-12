@@ -6,9 +6,15 @@ var current_scene = null
 const game_scene_path : String = "res://game.tscn"
 const main_scene_path : String = "res://main.tscn"
 const scores_scene_path : String = "res://scores.tscn"
+
 var game_scene : PackedScene = preload(game_scene_path)
 var main_scene : PackedScene = preload(main_scene_path)
 var scores_scene : PackedScene = preload(scores_scene_path)
+
+const credits_scene_path : String = "res://credits.tscn"
+var credits_scene : PackedScene = preload(credits_scene_path)
+
+
 
 var save_data:SaveData
 
@@ -65,6 +71,9 @@ func to_main() -> void:
 
 func to_scores() -> void:
 	goto_scene(scores_scene)
+
+func to_credits() -> void:
+	goto_scene(credits_scene)
 
 
 

@@ -14,3 +14,8 @@ func _on_start_button_pressed() -> void:
 func _on_scores_button_pressed() -> void:
 	Global.play_sound("button")
 	Global.to_scores()
+
+
+func _on_credits_button_pressed() -> void:
+	Global.play_sound("button")
+	Global.to_credits()

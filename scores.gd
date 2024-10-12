@@ -6,6 +6,9 @@ extends Node2D
 
 
 func _ready() -> void:
+	# Set the current scene
+	Global.current_scene = self
+	
 	popup.hide()
 	best_score.text = "%s" % str(Global.save_data.high_score)
 
