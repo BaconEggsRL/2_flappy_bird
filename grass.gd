@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @onready var screen_size = DisplayServer.window_get_size()
 @onready var START_X : float = -20.0
-@onready var MIN_X : float = -screen_size.x + 1
+@onready var MIN_X : float = -1220 + 1
 
 # @onready var color_rect: ColorRect = $ColorRect
 @onready var sprite: Sprite2D = $Sprite2D

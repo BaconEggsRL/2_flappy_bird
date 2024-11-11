@@ -24,6 +24,9 @@ grass = NodePath("grass")
 player = NodePath("player")
 score_label = NodePath("UI/ScoreLabel")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
 [node name="sky" parent="." instance=ExtResource("2_k063k")]
 position = Vector2(357, 0)
 

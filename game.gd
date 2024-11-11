@@ -66,8 +66,8 @@ func _on_pipe_timer_timeout() -> void:
 	
 func generate_pipe() -> void:
 	var pipe = pipe_scene.instantiate()
-	pipe.position.x = screen_size.x
-	pipe.position.y = (screen_size.y - grass_height) / 2 + randi_range(-pipe_range, pipe_range)
+	pipe.position.x = 1220
+	pipe.position.y = (720 - grass_height) / 2.0 + randi_range(-pipe_range, pipe_range)
 	pipe.hit_pipe.connect(player_hit_pipe)
 	pipe.scored.connect(player_scored)
 	pipes.add_child(pipe)

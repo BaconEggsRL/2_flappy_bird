@@ -1,4 +1,5 @@
 Flappy Bird:
+
 Flappy bird was a mobile game from 2013. 
 It was a sleeper hit, gaining sudden and massive popularity in 2014, 
 likely due to attention from a popular YouTuber at that time. 
@@ -9,6 +10,8 @@ of bouncing a ping pong ball on a paddle for as long as possible.
 Flappy Bird is a popular first game for new developers, 
 and is featured in many “first game” tutorials.
 
+
+==============================================
 
 Notes from playing:
 https://flappy-bird.co/
@@ -21,15 +24,11 @@ Score and High Score. Medal?
 Click to jump.
 
 
-
+==============================================
 
 
 Goals:
 
-1220 by 720
-
-spawn between
-200 and 400
 
 
 # Create a game world with a floor.
@@ -47,6 +46,7 @@ spawn between
 # Accumulate one point for each obstacle that the player passes. Display the score.
 
 
+==============================================
 
 Stretch goals:
 # Add some sounds that will play each time the player gains a point, and when the player loses.
@@ -57,7 +57,22 @@ Stretch goals:
 
 # Add some background art! Try layering the background and scrolling at a different rate to the foreground obstacles. This is called Parallax scrolling.
 # Add some background music
+
+
 Add a pause button
+Make game text labels and menus prettier
 
 
-506
+
+
+==============================================
+
+Game Notes:
+
+
+1220 by 720
+
+spawn between
+200 and 400
+
+506 is repeat size for parallax
